@@ -1,3 +1,5 @@
+import random
+import string
 import unittest #importing unittest module
 from credentials import Credentials #importing credentials class
 
@@ -33,6 +35,18 @@ class TestCredentials(unittest.TestCase):
         '''
         
         self.new_credential.save_credential() #saving nwe credential
+        self.assertEqual(len(Credentials.credentials_list),1)
+        
+    def test_delete_credential(self):
+        '''
+        test_delete_credential to test if we can remove a credential from the credential_list
+        '''
+        
+        self.new_credential.save_credential()
+        test_credential = Credentials("twitter","kaykate899","ckay")
+        test_credential.save_credential()
+        
+        self.new_credential.delete_credential()
         self.assertEqual(len(Credentials.credentials_list),1)
         
     def test_find_user_by_account(self):
