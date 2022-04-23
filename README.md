@@ -2,7 +2,7 @@
 
 #### By Catherine Kimani
 
-### A terminal run python application that allows users to manage their passwords and generate new passwords
+# A terminal run python application that allows users to manage their passwords and generate new passwords
 
 ## Table Of Content
 
