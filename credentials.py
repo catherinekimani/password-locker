@@ -24,3 +24,17 @@ class Credentials:
         '''
         
         Credentials.credentials_list.append(self)
+        
+    @classmethod
+    def find_user_by_account(cls, account):
+        '''
+        Method that takes in a credential and returns a credential that matches that account.
+        Args:
+        account: account to search for
+        Returns :
+            credential of person that matches the account.
+        '''
+
+        for Credentials in cls.credentials_list:
+            if Credentials.account == account:
+                return Credentials

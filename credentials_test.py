@@ -35,5 +35,17 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.save_credential() #saving nwe credential
         self.assertEqual(len(Credentials.credentials_list),1)
         
+    def test_find_user_by_account(self):
+        '''
+        test to check if we can find a credential by account name and display information
+        '''
+        
+        self.new_credential.save_credential()
+        test_credential = Credentials("twitter", "caroline", "carol123") #new credential
+        test_credential.save_credential()
+        
+        found_credential = Credentials.find_user_by_account("twitter")
+        self.assertEqual(found_credential.account, test_credential.account)
+        
 if __name__ == '__main__':
     unittest.main()
