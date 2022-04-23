@@ -73,5 +73,12 @@ class TestCredentials(unittest.TestCase):
         credential_exist = Credentials.find_credential_exist("twitter")
         self.assertTrue(credential_exist)
         
+    def test_display_credentials_list(self):
+        '''
+        method that returns a list of all credentials
+        '''
+        
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+        
 if __name__ == '__main__':
     unittest.main()
