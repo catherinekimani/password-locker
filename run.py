@@ -132,18 +132,36 @@ def main():
                 print("*" * 80)
                 print("\n")
                 
-            if short_code == 'CC':
+        elif short_code == 'CC':
                     print("Account Name \n 1. Twitter \n 2. Facebook \n 3. Instagram")
-                    print("Enter Account Name")
-                
+                    print("*" * 80)
+                    print("Enter Account Username")
+                    username = input()
+                    print("*" * 80)
+                    print("Enter Password")
+                    password = input()
+                    print("*" * 80)
+                    print("\n")
+                    print("Your Account has been successfully Created")
+                    print("*" * 80)
+                    print("/n")
+                    
+        elif short_code == 'GP':
+                    print("Would you like a generated password??")
+                    print("*" * 80)
+                    
         elif short_code == 'EX':
                 print("*" * 80)
                 print("Exit Password Locker .........")
                 print("*" * 80)
                 print("Please Wait")
+                print("\n")
+                print("*" * 80)
+                print("Logged out")
                 break
         else:
             print("Invalid Short_code")
             print("Please input the correct short code to continue")
 if __name__ == '__main__':
     main()
+    
