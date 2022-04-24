@@ -146,10 +146,20 @@ def main():
                     print("*" * 80)
                     print("/n")
                     
-        elif short_code == 'GP':
-                    print("Would you like a generated password??")
-                    print("*" * 80)
-                    
+        elif short_code == "GP":
+            letters = "abcdefghijklmnqryz01234567890ABOPQRSTUVWXYZ!@#$%^&*()?"
+            how_many = len(letters)
+            print("How long would you like your password to be? ")
+            print("*" * 80)
+            print(f"p.s: Maximum length of password is {how_many}")
+            lent = int(input())
+            password = "".join(random.sample(letters, lent))
+            print(f"Your password has {lent} characters ")
+            print("*" * 80)
+            print(password)
+            print("*" * 80)
+            print("\n")
+            
         elif short_code == 'EX':
                 print("*" * 80)
                 print("Exit Password Locker .........")
