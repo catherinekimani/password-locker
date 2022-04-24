@@ -72,7 +72,7 @@ def main():
     print("\n")
     
     while True:
-        print("Use these short codes to navigate through: \n 1. New User - NU, \n 2. Login to your account - LG,  \n 3. Display credentials - DC, \n 4. Create Credential - CC  \n 5. Exit - EX" )
+        print("Use these short codes to navigate through: \n 1. New User - NU, \n 2. Login to your account - LG,  \n 3. Display credentials - DC, \n 4. Create Credential - CC \n 5. Generate password - GP \n 6. View Account - VA  \n 7. Exit - EX" )
         
         short_code = input().upper()
         if short_code == 'NU':
@@ -122,12 +122,16 @@ def main():
                 print("Create a new Credential")
                 print("\n")
                 
-            if short_code == 'EX':
+            if short_code == 'CC':
+                    print("Account Name \n 1. Twitter \n 2. Facebook \n 3. Instagram")
+                    print("Enter Account Name")
+                
+            elif short_code == 'EX':
                 print("Exit Password Locker .........")
                 print("Please Wait")
                 break
-            else:
-                print("Invalid Short_code")
-                print("Please input the correct short code to continue")
+            # else:
+            #     print("Invalid Short_code")
+            #     print("Please input the correct short code to continue")
 if __name__ == '__main__':
     main()
