@@ -40,8 +40,8 @@ def create_Credentials(account,username,pass_word):
     '''
     function to create new credentials
     '''
-    new_credentials = Credentials(account,username,pass_word)
-    return new_credentials
+    credentials = Credentials(account,username,pass_word)
+    return credentials
 
 def save_credentials(credentials):
     '''
@@ -69,15 +69,17 @@ def display_credentials():
 
 def main():
     print("Welcome to Password Locker")
+    print("*" * 80)
     print("\n")
     
     while True:
         print("Use these short codes to navigate through: \n 1. New User - NU, \n 2. Login to your account - LG,  \n 3. Display credentials - DC, \n 4. Create Credential - CC \n 5. Generate password - GP \n 6. View Account - VA  \n 7. Exit - EX" )
+        print("\n")
         
         short_code = input().upper()
         if short_code == 'NU':
             print("New User")
-            print("-" * 10)
+            print("*" * 80)
             
             print("Enter fullname")
             fullname= input()
@@ -91,19 +93,25 @@ def main():
             
             print('\n')
             print(f"Congratulations!! {fullname} New Account Successfully Created")
+            print("*" * 80)
             print('\n')
             print("Proceed to Login!!")
+            print("*" * 80)
             print("Enter Short code (LG)")
+            print("*" * 80)
             
         elif short_code == 'LG':
             print("Login to your account!!")
+            print("*" * 80)
             print("Welcome....")
+            print("*" * 80)
             print("Enter Username")
             username = input()
             
             print("Enter Password")
             password = input()
             print(f" Hello {username} Welcome to password Locker!")
+            print("*" * 80)
             print("\n")
             
         elif short_code == 'DC':
@@ -118,20 +126,24 @@ def main():
             else:
                 print("\n")
                 print("Ooops You don't seem to have any saved Credentials yet ")
+                print("*" * 80)
                 print("\n")
                 print("Create a new Credential")
+                print("*" * 80)
                 print("\n")
                 
             if short_code == 'CC':
                     print("Account Name \n 1. Twitter \n 2. Facebook \n 3. Instagram")
                     print("Enter Account Name")
                 
-            elif short_code == 'EX':
+        elif short_code == 'EX':
+                print("*" * 80)
                 print("Exit Password Locker .........")
+                print("*" * 80)
                 print("Please Wait")
                 break
-            # else:
-            #     print("Invalid Short_code")
-            #     print("Please input the correct short code to continue")
+        else:
+            print("Invalid Short_code")
+            print("Please input the correct short code to continue")
 if __name__ == '__main__':
     main()
