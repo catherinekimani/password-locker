@@ -36,18 +36,19 @@ def user_exists(username):
     return User.user_exists(username)
 
 #credentials 
-def create_Credentials(account,username,pass_word):
+def create_Credentials(account,username,password):
     '''
     function to create new credentials
     '''
-    credentials = Credentials(account,username,pass_word)
-    return credentials
+    new_credential = Credentials(account,username,password)
+    return new_credential
 
-def save_credentials(credentials):
+def save_credentials(new_account):
     '''
     function to save a credential
     '''
-    credentials.save_credentials()
+    Credentials.save_credential(new_account)
+    
     
 def delete_credential(credentials):
     '''
@@ -73,7 +74,7 @@ def main():
     print("\n")
     
     while True:
-        print("Use these short codes to navigate through: \n 1. New User - NU, \n 2. Login to your account - LG,  \n 3. Display credentials - DC, \n 4. Create Credential - CC \n 5. Generate password - GP \n 6. View Account - VA  \n 7. Exit - EX" )
+        print("Use these short codes to navigate through: \n 1. New User - NU, \n 2. Login to your account - LG,  \n 3. Display credentials - DC, \n 4. Create Credential - CC \n 5. Generate password - GP  \n 6. Exit - EX" )
         print("\n")
         
         short_code = input().upper()
@@ -120,8 +121,11 @@ def main():
                 print("Here are your credentials")
                 print("\n")
                 
-                for Credentials in display_credentials():
-                    print(f"{Credentials.account} \n {Credentials.password} \n {Credentials.username}")
+                for credential in display_credentials():
+                    print(
+                        f"Account Name: {credential.account} \n"
+                        f"Account Username: {credential.username} \n" 
+                        f"Account Password: {credential.pass_word}")
                     print("\n")
             else:
                 print("\n")
@@ -135,6 +139,8 @@ def main():
         elif short_code == 'CC':
                     print("Account Name \n 1. Twitter \n 2. Facebook \n 3. Instagram")
                     print("*" * 80)
+                    print("Enter Account Name")
+                    account = input()
                     print("Enter Account Username")
                     username = input()
                     print("*" * 80)
@@ -142,9 +148,13 @@ def main():
                     password = input()
                     print("*" * 80)
                     print("\n")
+                    print("*" * 80)
+                    print("\n")
+                    save_credentials(create_Credentials(account,username,password))
                     print("Your Account has been successfully Created")
                     print("*" * 80)
-                    print("/n")
+                    print("Type 'DC' to view your account details")
+                    print("*" * 80)
                     
         elif short_code == "GP":
             letters = "abcdefghijklmnqryz01234567890ABOPQRSTUVWXYZ!@#$%^&*()?"
@@ -159,7 +169,8 @@ def main():
             print(password)
             print("*" * 80)
             print("\n")
-            
+        elif short_code == 'VA':
+            print("View account")
         elif short_code == 'EX':
                 print("*" * 80)
                 print("Exit Password Locker .........")
