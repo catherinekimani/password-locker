@@ -50,11 +50,11 @@ def save_credentials(new_account):
     Credentials.save_credential(new_account)
     
     
-def delete_credential(credentials):
+def delete_credential(new_account):
     '''
     function to delete credential
     '''
-    credentials.delete_credentials()
+    Credentials.delete_credential(new_account)
     
 def credential_exist(account):
     '''
@@ -74,7 +74,7 @@ def main():
     print("\n")
     
     while True:
-        print("Use these short codes to navigate through: \n 1. New User - NU, \n 2. Login to your account - LG,  \n 3. Display credentials - DC, \n 4. Create Credential - CC \n 5. Generate password - GP  \n 6. Exit - EX" )
+        print("Use these short codes to navigate through: \n 1. New User - NU, \n 2. Login to your account - LG,  \n 3. Display credentials - DC, \n 4. Create Credential - CC \n 5. Generate password - GP \n 6. Remove Credential - RC \n 7. Exit - EX" )
         print("\n")
         
         short_code = input().upper()
@@ -135,6 +135,19 @@ def main():
                 print("Create a new Credential")
                 print("*" * 80)
                 print("\n")
+        
+        elif short_code == 'RC':
+            if delete_credential(credential):
+                print("Delete Credential")
+                print("\n")
+                
+                for credential in delete_credential(credential):
+                    print(
+                        f"Account Name: {credential.account} \n"
+                        f"Account Username: {credential.username} \n"
+                        f"Account Password: {credential.pass_word}")
+                    print("\n")
+                    print("Account successfully deleted")
                 
         elif short_code == 'CC':
                     print("Account Name \n 1. Twitter \n 2. Facebook \n 3. Instagram")
@@ -169,8 +182,7 @@ def main():
             print(password)
             print("*" * 80)
             print("\n")
-        elif short_code == 'VA':
-            print("View account")
+            
         elif short_code == 'EX':
                 print("*" * 80)
                 print("Exit Password Locker .........")
